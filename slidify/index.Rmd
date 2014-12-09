@@ -1,0 +1,64 @@
+---
+title       : mtCars prediction app
+subtitle    : Developing Data Products course project
+author      : jamesmcm
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+---
+
+## mtCars prediction App
+
+* The mtCars prediction app lets you predict the MPG of a car given its weight (in 1000 lbs)
+
+* https://jamesmcm.shinyapps.io/myapp/
+
+* It uses the mtCars data with a linear model
+
+* The app is hosted on ShinyApps.io 
+
+* ShinyApps.io allows free hosting of Apps written in R with Shiny.
+
+---
+
+## Model
+
+* The model is:
+
+```{r}
+library(datasets)
+data(mtcars)
+lm(mpg~wt, mtcars)
+```
+
+---
+
+## Plot of data
+
+* The data looks as follows:
+
+``` {r, echo=FALSE}
+  library(ggplot2)
+    ggplot(mtcars, aes(x=wt, y=mpg)) +
+      geom_point(shape=1) +    # Use hollow circles
+       geom_smooth(method=lm) +
+      ggtitle("Fit of MPG vs. Weight for mtcars data") +
+     xlab("Weight (1000 lbs)") +
+    ylab("Miles per US Gallon")
+```
+
+---
+
+### Conclusion
+
+
+* Try out the mtCars prediction app today
+
+* The app is hosted on ShinyApps.io at:
+https://jamesmcm.shinyapps.io/myapp/
+
+* This pitch was written in RMarkdown with Slidify
+
